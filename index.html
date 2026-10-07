@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>StudyQuiz | PDF-Based Quiz</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <a
+        href="#"
+        class="brand"
+    >
+
+        <span class="brand-mark">
+            S
+        </span>
+
+        <span class="brand-text">
+
+            <strong>
+                StudyQuiz
+            </strong>
+
+            <small>
+                PDF-Based Review
+            </small>
+
+        </span>
+
+    </a>
+
+
+    <nav class="header-nav">
+
+        <button
+            id="resultsBtn"
+            class="header-btn"
+            type="button"
+        >
+            My Results
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+    <!-- =================================================
+         HOME SCREEN
+    ================================================== -->
+
+    <section
+        id="homeScreen"
+        class="screen active"
+    >
+
+        <div class="hero">
+
+            <div class="hero-copy">
+
+                <span class="eyebrow">
+                    STUDY • REVIEW • TEST
+                </span>
+
+                <h1>
+                    Quiz from your
+                    <br>
+
+                    <span>
+                        study materials.
+                    </span>
+                </h1>
+
+                <p>
+                    Select a topic and test your knowledge.
+                    Every quiz is based on the supplied
+                    study material.
+                </p>
+
+            </div>
+
+
+            <div class="hero-panel">
+
+                <div class="hero-panel-number">
+                    04
+                </div>
+
+                <div class="hero-panel-text">
+
+                    <strong>
+                        PDF Topics
+                    </strong>
+
+                    <span>
+                        Ready for review
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    AVAILABLE TOPICS
+                </span>
+
+                <h2>
+                    Choose a quiz
+                </h2>
+
+            </div>
+
+
+            <span class="coverage-note">
+                50 items per topic
+            </span>
+
+        </div>
+
+
+        <div
+            id="topicGrid"
+            class="topic-grid"
+        ></div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         QUIZ SCREEN
+    ================================================== -->
+
+    <section
+        id="quizScreen"
+        class="screen"
+    >
+
+        <div class="quiz-top">
+
+
+            <button
+                id="homeBtn"
+                class="back-link"
+                type="button"
+            >
+                ← Topics
+            </button>
+
+
+            <div class="quiz-heading">
+
+                <span
+                    id="questionType"
+                    class="question-type"
+                >
+                    MULTIPLE CHOICE
+                </span>
+
+                <h2 id="quizTitle">
+                    Quiz
+                </h2>
+
+            </div>
+
+
+            <div class="question-count">
+
+                <strong id="questionNumber">
+                    1
+                </strong>
+
+                <span>
+                    /
+                    <span id="quizTotal">
+                        50
+                    </span>
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-wrapper">
+
+            <div class="progress-track">
+
+                <div
+                    id="quizProgress"
+                    class="progress-fill"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+
+            <div class="question-card-top">
+
+                <div class="question-label">
+                    QUESTION
+                    <span id="questionNumberLabel">
+                        1
+                    </span>
+                </div>
+
+            </div>
+
+
+            <h1 id="questionText">
+                Question
+            </h1>
+
+
+            <div
+                id="questionArea"
+                class="question-area"
+            ></div>
+
+
+        </div>
+
+
+        <div class="quiz-navigation">
+
+            <button
+                id="cancelQuizBtn"
+                type="button"
+                class="cancel-quiz-btn"
+            >
+                Cancel Quiz
+            </button>
+
+            <button
+                id="nextBtn"
+                type="button"
+            >
+                Next Question
+                <span>→</span>
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         RESULT SCREEN
+    ================================================== -->
+
+    <section
+        id="resultScreen"
+        class="screen"
+    >
+
+        <div class="result-container">
+
+
+            <span class="eyebrow">
+                QUIZ COMPLETE
+            </span>
+
+
+            <h1 id="resultTopic">
+                Quiz Complete
+            </h1>
+
+
+            <div class="score-ring">
+
+                <span id="resultPercent">
+                    0%
+                </span>
+
+                <small>
+                    score
+                </small>
+
+            </div>
+
+
+            <div class="score-text">
+
+                <strong id="resultScore">
+                    0 / 50
+                </strong>
+
+            </div>
+
+
+            <p class="result-message">
+                Your quiz has been completed.
+            </p>
+
+
+            <div
+                id="firebaseStatus"
+                class="firebase-status"
+            >
+                Saving result...
+            </div>
+
+
+            <div class="result-actions">
+
+
+                <button
+                    id="resultRetakeBtn"
+                    class="primary-btn"
+                    type="button"
+                >
+                    Retake Quiz
+                </button>
+
+
+                <button
+                    id="resultHomeBtn"
+                    class="secondary-btn"
+                    type="button"
+                >
+                    Back to Topics
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         RESULTS SCREEN
+    ================================================== -->
+
+    <section
+        id="resultsScreen"
+        class="screen"
+    >
+
+        <div class="results-heading">
+
+
+            <button
+                id="resultsHomeBtn"
+                class="back-link"
+                type="button"
+            >
+                ← Topics
+            </button>
+
+
+            <span class="eyebrow">
+                FIREBASE HISTORY
+            </span>
+
+
+            <h1>
+                My Results
+            </h1>
+
+
+            <p>
+                Your recent quiz results saved to Firebase.
+            </p>
+
+
+        </div>
+
+
+        <div
+            id="resultsList"
+            class="results-list"
+        ></div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <strong>
+        StudyQuiz
+    </strong>
+
+    <span>
+        PDF-based student quiz system
+    </span>
+
+</footer>
+
+
+
+<script
+    type="module"
+    src="script.js"
+></script>
+
+</body>
+
+</html>
